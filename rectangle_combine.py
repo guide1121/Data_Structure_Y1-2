@@ -16,20 +16,20 @@ class Point:
 
 class Rectangle(Point):
     def __init__(self,x1,x2,y1,y2):
-        self.w = 
-        self.h = h
-    def cal(self, other):
+        self.w = x2 - x1
+        self.h = y1 - y2
+    
+    def __add__(self, other):
         new_w = self.w + other.w
-        if self.w > other.w:
-            return f"New Rectangle ({new_w}, {new_h})"
         new_h = max(self.h, other.h)
-        return f"New Rectangle ({new_w}, {new_h})"
+        return Rectangle(0, new_w, new_h, 0)
     
     def __str__(self):
-        return f"Rectangle({self.w}, {self.h})"
+        return f"Rectangle(width = {self.w}, height = {self.h})"
     
-r1 = Rectangle(2,3)
-r2 = Rectangle(3,6)
+r1 = Rectangle(1,2,1,-1)
+r2 = Rectangle(2, 4, 2, 0)
+r3 = r1 + r2
 
-sum_rec = r1.cal(r2)
-print(sum_rec)
+print(r3)
+
