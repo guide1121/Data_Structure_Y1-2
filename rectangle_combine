@@ -1,0 +1,35 @@
+#บวกสี่เหลี่ยมสองอัน โดยนำความกว้างสองอันบวกกัน และนำความสูงที่ยาวที่สุดในสองอันมาเป็นความสูงของสี่เหลี่ยมผลลัพธ์
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+    def __sub__(self, other):
+        return Point(self.x - other.x, self.y - other.y)
+    def __mul__(self, scalar):
+        return Point(self.x * scalar)
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+    
+
+class Rectangle(Point):
+    def __init__(self,w,h):
+        self.w = w
+        self.h = h
+    def cal(self, other):
+        new_w = self.w + other.w
+        if self.w > other.w:
+            return f"New Rectangle ({new_w}, {new_h})"
+        new_h = max(self.h, other.h)
+        return f"New Rectangle ({new_w}, {new_h})"
+    
+    def __str__(self):
+        return f"Rectangle({self.w}, {self.h})"
+    
+r1 = Rectangle(2,3)
+r2 = Rectangle(3,6)
+
+sum_rec = r1.cal(r2)
+print(sum_rec)
