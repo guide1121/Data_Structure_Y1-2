@@ -15,8 +15,8 @@ class Point:
     
 
 class Rectangle(Point):
-    def __init__(self,w,h):
-        self.w = w
+    def __init__(self,x1,x2,y1,y2):
+        self.w = 
         self.h = h
     def cal(self, other):
         new_w = self.w + other.w
